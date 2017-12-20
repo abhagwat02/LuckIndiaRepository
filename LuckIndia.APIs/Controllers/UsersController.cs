@@ -51,7 +51,7 @@ namespace LuckIndia.APIs.Controllers
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Could not read User");
 
                 //Create User
-                TheRepository.CreateUser(newUser);
+               // TheRepository.CreateUser(newUser);
                 var accts = user.accounts.Select(x => TheModelFactory.Parse(x)).ToList();
                 accts.ForEach(x => x.user = newUser);
 
