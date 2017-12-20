@@ -1,0 +1,9 @@
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Release\LuckIndia.Models.dll
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Release\LuckIndia.Models.pdb
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Release\EntityFramework.dll
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Release\EntityFramework.SqlServer.dll
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Release\EntityFramework.xml
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Release\EntityFramework.SqlServer.xml
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\obj\Release\LuckIndia.Models.csprojResolveAssemblyReference.cache
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\obj\Release\LuckIndia.Models.dll
+C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\obj\Release\LuckIndia.Models.pdb

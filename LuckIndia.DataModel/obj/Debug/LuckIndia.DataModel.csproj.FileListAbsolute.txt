@@ -1,0 +1,14 @@
+C:\Personal\Project\LuckIndia.DataModel\obj\Debug\LuckIndia.DataModel.csprojResolveAssemblyReference.cache
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\LuckIndia.DataModel.dll.config
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\LuckIndia.DataModel.dll
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\LuckIndia.DataModel.pdb
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\EntityFramework.dll
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\LuckIndia.Models.dll
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\LuckIndia.Models.pdb
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\EntityFramework.xml
+C:\Personal\Project\LuckIndia.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Personal\Project\LuckIndia.DataModel\obj\Debug\LuckIndia.DataModel.dll
+C:\Personal\Project\LuckIndia.DataModel\obj\Debug\LuckIndia.DataModel.pdb
+C:\Personal\Project\LuckIndia.DataModel\obj\Debug\LuckIndia.DataModel.Migrations.init.resources
+C:\Personal\Project\LuckIndia.DataModel\obj\Debug\LuckIndia.DataModel.csproj.GenerateResource.Cache
