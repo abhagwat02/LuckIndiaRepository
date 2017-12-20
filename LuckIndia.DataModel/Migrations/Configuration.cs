@@ -52,7 +52,7 @@ namespace LuckIndia.DataModel.Migrations
             //Accounts
             var accounts_user1 = new List<Account>
             {
-                new Account {  CardNumber = 1111, Type = accttypes[0]},
+                new Account {  CardNumber = 1111, Type = accttypes[0], },
                 new Account {  CardNumber = 2222, Type = accttypes[1]},
             };
 

@@ -30,7 +30,18 @@ namespace LuckIndia.DataModel
                                      .FirstOrDefault();
         }
 
-        
+        public LuckUser GetUserByPhone(long phonenumber, bool bIncludeAccounts = true)
+        {
+            return bIncludeAccounts ?
+                _context.Users.Include("accounts.type")
+                .Where(x => x.PhoeNumber == phonenumber)
+                .FirstOrDefault() : _context.Users
+                                    .Where(x => x.PhoeNumber == phonenumber)
+                                     .FirstOrDefault();
+        }
+
+
+
         public List<Account> GetAccountsForUser(int userID)
         {
             return _context.Accounts
@@ -47,6 +58,10 @@ namespace LuckIndia.DataModel
                 .Where(x => x.Id == Id).FirstOrDefault();
         }
 
+        public AccountType GetAccountType(int Id)
+        {
+            return _context.AcctTypes.Where(x => x.Id == Id).FirstOrDefault();
+        }
         public void Dispose()
         {
             Dispose();
@@ -54,19 +69,27 @@ namespace LuckIndia.DataModel
 
         /********************************* Post ****************************************/
         // POST api/users
-        public void InsertUser(LuckUser user)
+        public void CreateUser(LuckUser user)
         {
-            List<Account> addedaccts = user.accounts.ToList();
-            addedaccts.ForEach(x => _context.AcctTypes.AddOrUpdate(x.Type));
-            _context.SaveChanges();
-
-            addedaccts.ForEach(x => _context.Accounts.AddOrUpdate(x));
-            _context.SaveChanges();
-
-            addedaccts.ForEach(d => user.accounts.Add(d));
             _context.Users.AddOrUpdate(user);
             _context.SaveChanges();
             
+        }
+
+        public void CreateAccount(Account acct)
+        {
+            acct.Type = GetAccountType(acct.Type.Id);
+            _context.Accounts.AddOrUpdate(acct);
+            _context.SaveChanges();
+         
+
+        }
+
+        public void CreateAccountType(AccountType accttype)
+        {
+            _context.AcctTypes.AddOrUpdate(accttype);
+            _context.SaveChanges();
+
         }
 
     }

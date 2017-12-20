@@ -1,10 +1,9 @@
 ﻿using LuckIndia.APIs.DTO;
+using LuckIndia.DataModel;
 using LuckIndia.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http.Routing;
 
 namespace LuckIndia.APIs.Models
@@ -13,10 +12,12 @@ namespace LuckIndia.APIs.Models
     {
 
         public UrlHelper _urlHelper { get; set; }
+        public LuckIndiaRepository _repo { get; set; }
 
-        public ModelFactory(HttpRequestMessage request)
+        public ModelFactory(HttpRequestMessage request, LuckIndiaRepository repo)
         {
             _urlHelper = new UrlHelper(request);
+            _repo = repo;
         }
         public UserDto Create(LuckUser user)
         {
@@ -40,12 +41,17 @@ namespace LuckIndia.APIs.Models
                 Id = acct.Id,
                 CardNumber = acct.CardNumber,
                 ParentAccountID = acct.ParentAccountID,
+                UserName = acct.UserName,
+                Password = acct.Password,
                 Type = Create(acct.Type),
-                Url = _urlHelper.Link("Account", new { userid = acct.user.Id, Id = acct.Id })
+              //  Url = _urlHelper.Link("Account", new { userid = acct.user.Id, Id = acct.Id })
 
-
+                
             };
+            
         }
+
+     
 
         public AccountTypeDto Create(AccountType acctType)
         {
@@ -55,6 +61,73 @@ namespace LuckIndia.APIs.Models
                 TypeName = acctType.TypeName
 
             };
+        }
+
+
+        internal LuckUser Parse(UserDto user)
+        {
+            //try
+            //{
+                return new LuckUser
+                {
+                    Address = user.Address,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Id = user.Id,
+                    MiddleName = user.MiddleName,
+                    PhoeNumber = user.PhoeNumber,
+                };
+           // }
+            //catch (Exception ex)
+            //{
+            //    //return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+            //}
+
+        }
+
+        internal Account Parse(AccountDto account)
+        {
+            //try
+            //{
+                return new Account
+                {
+                   CardNumber  = account.CardNumber,
+                    DateModified = account.DateModified,
+                    DateCreated = account.DateCreated,
+                    ParentAccountID = account.ParentAccountID,
+                    Password = account.Password,
+                    UserName = account.UserName,
+                   Type = Parse(account.Type)
+                   
+                };
+            //}
+            //catch (Exception ex)
+            //{
+            //    //return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+            //}
+
+
+
+        }
+
+        internal AccountType Parse(AccountTypeDto accounttype)
+        {
+            //try
+            //{
+            return new AccountType
+            {
+                Id = accounttype.Id,
+                TypeName = accounttype.TypeName
+                
+            };
+            //}
+            //catch (Exception ex)
+            //{
+            //    //return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+            //}
+
+
+
         }
     }
 

@@ -32,7 +32,6 @@ namespace LuckIndia.APIs.Controllers
             {
                 return TheModelFactory.Create(account);
             }
-                
             return null;
         }
     }

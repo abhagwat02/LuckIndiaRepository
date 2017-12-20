@@ -263,6 +263,7 @@
     <Compile Include="DTO\AccountDto.cs" />
     <Compile Include="DTO\AccountTypeDto.cs" />
     <Compile Include="DTO\UserDto.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

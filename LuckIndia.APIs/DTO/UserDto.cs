@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LuckIndia.APIs.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,7 @@ namespace LuckIndia.APIs.DTO
         public long PhoeNumber { get; set; }
         public String Address { get; set; }
         public IEnumerable<AccountDto> accounts { get; set; }
-        
+
+
     }
 }

@@ -1,8 +1,0 @@
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Debug\LuckIndia.Models.dll
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Debug\LuckIndia.Models.pdb
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Debug\EntityFramework.dll
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Debug\EntityFramework.SqlServer.dll
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Debug\EntityFramework.xml
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\obj\Debug\LuckIndia.Models.dll
-C:\Personal\Project\LuckIndia.Models\LuckIndia.Models\obj\Debug\LuckIndia.Models.pdb
