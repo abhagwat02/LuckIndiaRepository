@@ -5,12 +5,12 @@ using System.Web;
 
 namespace LuckIndia.Models
 {
-    public class TxnType
+    public class TxnType : Model
     {
-        public int Id { get; set; }
+        public override int Id { get; set; }
         public String TypeName { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
     }
 }

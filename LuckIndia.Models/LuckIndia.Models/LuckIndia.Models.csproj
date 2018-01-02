@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,6 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ManyToManyObjectAttribute.cs" />
+    <Compile Include="Attributes\NonDeletableAttribute.cs" />
+    <Compile Include="Attributes\NonPatchableAttribute.cs" />
+    <Compile Include="DTO\AccountDto.cs" />
+    <Compile Include="DTO\AccountTypeDto.cs" />
+    <Compile Include="DTO\ApiMessage.cs" />
+    <Compile Include="DTO\OptionDto.cs" />
+    <Compile Include="DTO\QuestionDto.cs" />
+    <Compile Include="DTO\UserDto.cs" />
+    <Compile Include="Interfaces\IDTO.cs" />
+    <Compile Include="Interfaces\IExpirable.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IModelDTO.cs" />
+    <Compile Include="Interfaces\IModelPermission.cs" />
+    <Compile Include="Interfaces\ISortable.cs" />
+    <Compile Include="Interfaces\IValidatable.cs" />
+    <Compile Include="Models\AccessToken.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\ModelClass.cs" />
     <Compile Include="Models\Quiz\Bids.cs" />
     <Compile Include="Models\Quiz\Option.cs" />
     <Compile Include="Models\Quiz\Question.cs" />
@@ -56,9 +76,13 @@
     <Compile Include="Models\Quiz\Result.cs" />
     <Compile Include="Models\Registration\Account.cs" />
     <Compile Include="Enums\AccountType.cs" />
-    <Compile Include="Models\Registration\User.cs" />
+    <Compile Include="Models\Registration\LuckUser.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RolePermission.cs" />
+    <Compile Include="Models\RoleType.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Enums\TxnType.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

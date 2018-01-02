@@ -11,28 +11,7 @@ using System.Web.Http;
 
 namespace LuckIndia.APIs.Controllers
 {
-    public class AccountsController : BaseApiController
+    public class AccountsController : RestApiController<Account, AccountDto>
     {
-        //[Route("api/Users/{userId}/accounts/{Id}")]
-        //[HttpGet]
-        public IEnumerable<AccountDto> Get(int userId)
-        {
-            var accounts = TheRepository.GetAccountsForUser(userId)
-                .ToList()
-                .Select(a => TheModelFactory.Create(a));
-            return accounts;
-        }
-
-        public AccountDto Get(int userId, int Id)
-        {
-           
-            var account = TheRepository.GetAccount(Id);
-                          
-            if(account.user.Id == userId)
-            {
-                return TheModelFactory.Create(account);
-            }
-            return null;
-        }
     }
 }
