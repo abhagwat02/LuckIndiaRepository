@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport"  />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <img src="~/Images/banner.jpg" alt="" />
+                <div class="float-left" style="background : gold">                    
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                            <li>@Html.ActionLink("REGISTER", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
+                            <li>@Html.ActionLink("RESULT", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("LOGIN", "Login", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div style="clear: both; height: 10px;">
+        </div>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <div style="clear: both; height: 10px;">
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left" style="vertical-align: middle">
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                            <li>@Html.ActionLink("REGISTER", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
+                            <li>@Html.ActionLink("RESULT", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("LOGIN", "Login", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
