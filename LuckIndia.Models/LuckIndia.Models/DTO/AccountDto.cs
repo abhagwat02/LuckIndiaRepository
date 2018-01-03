@@ -8,7 +8,6 @@ namespace LuckIndia.APIs.DTO
 {
     public class AccountDto : IModelDTO
     {
-        public string Url { get; set; }
         public int? Id { get; set; }
         public DateTime DateCreated { get; set; }
         public int CardNumber { get; set; }

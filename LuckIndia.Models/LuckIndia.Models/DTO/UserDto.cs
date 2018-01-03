@@ -8,7 +8,10 @@ namespace LuckIndia.APIs.DTO
 {
     public class UserDto : IModelDTO
     {
-        public string Url { get; set; }
+        public UserDto()
+        {
+            accounts = new HashSet<AccountDto>();
+        }
         public int? Id { get; set; }
         public String FirstName { get; set; }
         public String MiddleName { get; set; }

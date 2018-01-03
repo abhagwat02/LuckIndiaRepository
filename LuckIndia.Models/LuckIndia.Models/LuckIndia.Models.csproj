@@ -59,6 +59,7 @@
     <Compile Include="DTO\ApiMessage.cs" />
     <Compile Include="DTO\OptionDto.cs" />
     <Compile Include="DTO\QuestionDto.cs" />
+    <Compile Include="DTO\QuizDto.cs" />
     <Compile Include="DTO\UserDto.cs" />
     <Compile Include="Interfaces\IDTO.cs" />
     <Compile Include="Interfaces\IExpirable.cs" />

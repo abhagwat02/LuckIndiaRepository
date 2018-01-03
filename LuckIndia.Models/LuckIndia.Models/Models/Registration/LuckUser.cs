@@ -21,6 +21,7 @@ namespace LuckIndia.Models
         public long PhoeNumber { get; set; }
         public String Address { get; set; }
         public int ParentAccountID { get; set; }
+        [Include]
         public ICollection<Account> accounts { get; set; }
 
         private DateTime _createdDate;

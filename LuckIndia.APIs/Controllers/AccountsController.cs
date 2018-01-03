@@ -13,5 +13,11 @@ namespace LuckIndia.APIs.Controllers
 {
     public class AccountsController : RestApiController<Account, AccountDto>
     {
+        public override IHttpActionResult Post(AccountDto postedDto)
+        {
+            postedDto.DateCreated = DateTime.Now;
+            postedDto.DateModified = DateTime.Now;
+            return base.Post(postedDto);
+        }
     }
 }

@@ -178,7 +178,7 @@ namespace LuckIndia.APIs.Controllers
 
             using (var context = LuckIndiaDBContext.GetContextWithAccessToken(this.GetAccessToken(), this.GetLogger()))
             {
-                 var userId = context.GetCurrentUser().Id;
+                var userId = context.GetCurrentUser().Id;
 
                 var dataInjectors = new List<IDataInjectable>
                     {
@@ -191,12 +191,12 @@ namespace LuckIndia.APIs.Controllers
                 var validationErrors = new StringBuilder();
 
                 var delta = new Dictionary<string, object>();
-                
+
                 var modelFound = context.Set<TModel>().FirstOrDefault(x => x.Id == id);
                 if (modelFound == null)
                 {
-                   // CMDLogger.LogBusinessException("Model ID not found : " + id, json, string.Empty);                   
-                    
+                    // CMDLogger.LogBusinessException("Model ID not found : " + id, json, string.Empty);                   
+
                 }
                 foreach (var o in json)
                 {
@@ -248,10 +248,8 @@ namespace LuckIndia.APIs.Controllers
                 {
                     return this.BadRequest(validationErrors.ToString().Trim());
                 }
-
-                var model = context.Update<TModel>(id.Value, delta);
-
-                return this.Ok(this.Factory.ToDTO(model));
+                var modelupdated = context.Update<TModel>(id.Value, delta);
+                return this.Ok(this.Factory.ToDTO(modelupdated));
             }
         }
 

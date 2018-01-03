@@ -11,12 +11,17 @@ namespace LuckIndia.Models
     public class Question:Model
     {
 
+        public Question()
+        {
+            Options = new HashSet<Option>();
+        }
         public override int Id { get; set; }
 
         public String Statement { get; set; }
 
+        [Include]
         public ICollection<Option> Options { get; set; }
-
+    
         private DateTime _createdDate;
         [NonPatchable]
         [Column(TypeName = "datetime2")]

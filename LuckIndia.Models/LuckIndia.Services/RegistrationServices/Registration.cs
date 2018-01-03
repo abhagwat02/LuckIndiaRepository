@@ -1,4 +1,5 @@
 ﻿using LuckIndia.APIs.DTO;
+using LuckIndia.APIs.HttpExtension;
 using LuckIndia.Models;
 using Newtonsoft.Json;
 using System;
@@ -34,11 +35,6 @@ namespace LuckIndia.Services.RegistrationServices
             }
         }
 
-        public void Create(UserDto dto)
-        {
-            CrateLuckyUser(dto);
-        }
-
         private async Task<HttpResponseMessage> RetreiveAccount(string path)
         {
             try
@@ -46,6 +42,7 @@ namespace LuckIndia.Services.RegistrationServices
                 HttpResponseMessage response;
                 // New code:
                 response = await _client.GetAsync(path);
+
                 return response;
             }
             catch(Exception ex)
@@ -56,19 +53,111 @@ namespace LuckIndia.Services.RegistrationServices
         }
 
 
-        public async Task<HttpResponseMessage> CrateLuckyUser(UserDto dto)
+        public async Task<UserDto> CrateLuckyUser(UserDto dto)
         {
             try
             {
                 HttpResponseMessage response;
                 response = await _client.PostAsJsonAsync("users", dto).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-                return response;
+                var retVal = response.Content.ReadAsAsync<UserDto>().Result;
+
+                return retVal;
             }
             catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
+
+        public async Task<UserDto> UpdateLuckyUser(int Id, UserDto dto)
+        {
+            try
+            {
+                HttpResponseMessage response;
+                HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(dto));
+                httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                response = await _client.PatchAsync(new Uri(BaseUri + "users\\" + Id), httpContent);//.ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
+                var retVal = response.Content.ReadAsAsync<UserDto>().Result;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<AccountDto> UpdateUserAccount(int Id, AccountDto dto)
+        {
+            try
+            {
+                HttpResponseMessage response;
+                HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(dto));
+                httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                response = await _client.PatchAsync(new Uri(BaseUri + "accounts\\" + Id), httpContent).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
+                var retVal = response.Content.ReadAsAsync<AccountDto>().Result;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<UserDto[]> GetAllLuckyUser()
+        {
+            try
+            {
+                HttpResponseMessage response;
+                // New code:
+                response = await _client.GetAsync("users");
+                var retVal = response.Content.ReadAsAsync<UserDto[]>().Result;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            return null;
+        }
+
+
+        public async Task<UserDto> GetLuckyUserByID(int Id)
+        {
+            try
+            {
+                HttpResponseMessage response;
+                // New code:
+                response = await _client.GetAsync("users\\"+Id);
+                var retVal = response.Content.ReadAsAsync<UserDto>().Result;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
+        }
+
+        public async Task<HttpResponseMessage> DeleteLuckyUser(int Id)
+        {
+            try
+            {
+                HttpResponseMessage response;
+                // New code:
+                response = await _client.DeleteAsync("users\\"+Id);
+                var retVal = response.Content.ReadAsAsync<HttpResponseMessage>().Result;
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            return null;
+        }
+
+
 
     }
 }

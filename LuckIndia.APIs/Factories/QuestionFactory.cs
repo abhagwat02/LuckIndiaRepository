@@ -11,7 +11,11 @@ namespace LuckIndia.APIs.Factories
     {
         public override Question FromDTO(QuestionDto dto)
         {
-           var model =  new Question
+            if (dto == null)
+            {
+                return null;
+            }
+            var model =  new Question
             {
                 DateCreated = dto.DateCreated,
                 DateModified = dto.DateModified,
@@ -23,13 +27,17 @@ namespace LuckIndia.APIs.Factories
 
         public override QuestionDto ToDTO(Question model)
         {
+            if (model == null)
+            {
+                return null;
+            }
             var dto =  new QuestionDto
             {
                 Id = model.Id,
                 DateCreated = model.DateCreated,
                 DateModified = model.DateModified,
                 Statement = model.Statement,
-                //Options = model.Options.Select(x => new OptionFactory().ToDTO(x)).ToList(),
+                Options = model.Options.Select(x => new OptionFactory().ToDTO(x)).ToList(),
 
             };
             return dto;

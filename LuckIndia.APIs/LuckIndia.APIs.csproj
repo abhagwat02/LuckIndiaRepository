@@ -294,11 +294,13 @@
     <Compile Include="Factories\OptionFactory.cs" />
     <Compile Include="Factories\QuestionFactory.cs" />
     <Compile Include="Factories\LuckUserFactory.cs" />
+    <Compile Include="Factories\QuizFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\HttpRequestHelper.cs" />
     <Compile Include="Handlers\SetApiPrincipalHandler.cs" />
+    <Compile Include="HttpExtension\HttpClientExtension.cs" />
     <Compile Include="HttpResponses\OkAcceptedResult.cs" />
     <Compile Include="HttpResponses\OkNegotiatedContentResultWithMetadata.cs" />
     <Compile Include="HttpResponses\OkNoContentResult.cs" />

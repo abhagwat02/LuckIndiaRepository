@@ -11,20 +11,24 @@ namespace LuckIndia.APIs.Factories
     {
         public override LuckUser FromDTO(UserDto dto)
         {
-            var model = new LuckUser
+            if (dto != null)
             {
-                Address = dto.Address,
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                MiddleName = dto.MiddleName,
-                PhoeNumber = dto.PhoeNumber,
-                DateModified = dto.DateModified,
-                DateCreated = dto.DateCreated,
-                accounts = dto.accounts.Select(x => new AccountFactory().FromDTO(x)).ToList()
-                             
-            };
+                var model = new LuckUser
+                {
+                    Address = dto.Address,
+                    FirstName = dto.FirstName,
+                    LastName = dto.LastName,
+                    MiddleName = dto.MiddleName,
+                    PhoeNumber = dto.PhoeNumber,
+                    DateModified = dto.DateModified,
+                    DateCreated = dto.DateCreated,
+                    accounts = dto.accounts.Select(x => new AccountFactory().FromDTO(x)).ToList()
 
-            return model;
+                };
+                return model;
+            }
+
+            return null;
         }
 
         public override UserDto ToDTO(LuckUser model)
@@ -44,7 +48,7 @@ namespace LuckIndia.APIs.Factories
                 PhoeNumber = model.PhoeNumber,
                 DateCreated = model.DateCreated,
                 DateModified = model.DateModified,
-                //accounts = model.accounts.Select(x => new AccountFactory().ToDTO(x)).ToList()
+                accounts = model.accounts.Select(x => new AccountFactory().ToDTO(x)).ToList()
             };
            return dto;
         }

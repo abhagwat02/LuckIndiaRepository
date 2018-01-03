@@ -1,4 +1,5 @@
 ﻿using LuckIndia.Models;
+using LuckIndia.Models.Attributes;
 using LuckIndia.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -7,11 +8,17 @@ using System.Web;
 
 namespace LuckIndia.APIs.DTO
 {
+    [Include]
     public class QuestionDto : IModelDTO
     {
+        public QuestionDto()
+        {
+            Options =  new HashSet<OptionDto>();
+        }
         public int? Id { get; set; }
         public String Statement { get; set; }
 
+        [Include]
         public ICollection<OptionDto> Options { get; set; }
 
         public DateTime DateCreated { get; set; }

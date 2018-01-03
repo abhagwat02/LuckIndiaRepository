@@ -131,9 +131,9 @@
     <Compile Include="Logger\FakeLoggerService.cs" />
     <Compile Include="LuckIndiaDBContext.cs" />
     <Compile Include="LuckIndiaRepository.cs" />
-    <Compile Include="Migrations\201712300834388_Init.cs" />
-    <Compile Include="Migrations\201712300834388_Init.Designer.cs">
-      <DependentUpon>201712300834388_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201801021636393_Init.cs" />
+    <Compile Include="Migrations\201801021636393_Init.Designer.cs">
+      <DependentUpon>201801021636393_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,8 +151,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712300834388_Init.resx">
-      <DependentUpon>201712300834388_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801021636393_Init.resx">
+      <DependentUpon>201801021636393_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

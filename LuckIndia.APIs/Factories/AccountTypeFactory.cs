@@ -11,27 +11,34 @@ namespace LuckIndia.APIs.Factories
     {
         public override AccountType FromDTO(AccountTypeDto dto)
         {
-            var model =  new AccountType
+            if (dto != null)
             {
-                TypeName = dto.TypeName,
-                DateCreated = dto.DateCreated,
-                DateModified = dto.DateModified
-                
-            };
+                var model = new AccountType
+                {
+                    TypeName = dto.TypeName,
+                    DateCreated = dto.DateCreated,
+                    DateModified = dto.DateModified
 
-            return model;
+                };
+                return model;
+            }
+            return null;
         }
 
         public override AccountTypeDto ToDTO(AccountType model)
         {
-            var dto = new AccountTypeDto
+            if (model != null)
             {
-                Id = model.Id,
-                TypeName = model.TypeName,
-                DateCreated = model.DateCreated,
-                DateModified = model.DateModified,
-            };
-            return dto;
+                var dto = new AccountTypeDto
+                {
+                    Id = model.Id,
+                    TypeName = model.TypeName,
+                    DateCreated = model.DateCreated,
+                    DateModified = model.DateModified,
+                };
+                return dto;
+            }
+            return null;
         }
     }
 }

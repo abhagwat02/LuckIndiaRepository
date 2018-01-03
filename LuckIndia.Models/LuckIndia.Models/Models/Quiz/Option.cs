@@ -12,6 +12,8 @@ namespace LuckIndia.Models
     {
         public override int Id { get; set; }
         public String Content { get; set; }
+        public int QuestionID { get; set; }
+
         [Include]
         public Question Question { get; set; }
 

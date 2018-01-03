@@ -128,7 +128,7 @@ namespace LuckIndia.DataModel
         #endregion
 
 
-        #region CMD Entities Context
+        #region LuckIndia Entities Context
 
         public DbSet<LuckIndia.Models.User> Users { get; set; }
 
