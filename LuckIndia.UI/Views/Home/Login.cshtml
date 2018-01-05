@@ -1,19 +1,18 @@
 ﻿@model LuckIndia.UI.Models.LoginModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Login";
 }
 
 
 <section id="loginForm">
     
-    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-    {
+   @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+   {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
         <fieldset>
-            <legend>Log in Form</legend>
             <ol>
                 <li>
                     @Html.LabelFor(m => m.UserName)
@@ -26,8 +25,18 @@
                     @Html.ValidationMessageFor(m => m.Password)
                 </li>
             </ol>
-            <input type="button" value="Login" onclick="Login()" />
+            <input id ="btnLogin" type="submit" value="Login"/> @*onclick="location.href= '@Url.Action("SignIn","Home")'" />*@
         </fieldset>
+       
+        
+         @*<script type="text/javascript">
+            $('#btnLogin').click( function()
+            {
+               @Html.ActionLink("Home", "SignIn")          
+
+            }
+                )
+        </script>*@
        
     }
 </section>
