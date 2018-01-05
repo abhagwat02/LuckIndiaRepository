@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LuckIndia.Services
 {
-    public class BaseService
+    public class BaseService 
     {
         public HttpClient _client { get; set; }
         public string BaseUri { get; set; }
@@ -29,6 +29,9 @@ namespace LuckIndia.Services
             //TheModelFactory = new ModelFactory(new HttpRequestMessage(), new LuckIndiaRepository(new LuckIndiaDBContext()));
         }
 
-
+        //public void Dispose()
+        //{
+        //    this.Dispose();
+        //}
     }
 }

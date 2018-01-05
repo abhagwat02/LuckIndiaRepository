@@ -40,18 +40,18 @@ namespace TestConsole
 
             //};
 
-            var acctDto = new AccountDto
-            {
+            //var acctDto = new AccountDto
+            //{
                 
-                CardNumber = 12345,
-                Type = new AccountTypeDto
-                { 
-                    Id = 3,
-                    TypeName = "Dealer"
-                },
-                Password = "p@99w0rD",
-                UserName = "8007926868"
-            };
+            //    CardNumber = 12345,
+            //    Type = new AccountTypeDto
+            //    { 
+            //        Id = 3,
+            //        TypeName = "Dealer"
+            //    },
+            //    Password = "p@99w0rD",
+            //    UserName = "8007926868"
+            //};
 
 
             //var acctdtolist = new List<AccountDto>();
@@ -65,12 +65,12 @@ namespace TestConsole
             //var returned =  res.Content.ReadAsAsync<UserDto>().Result;
 
             //Get Login
-            //string status;
-            //if (registration.SignIn("12345", "p@77w0rDss", out status))
-            //{
-            //    Console.WriteLine(status);
-            //}
-            //Console.WriteLine(status);
+            string status;
+            if (registration.SignIn("12345", "p@77w0rDss", out status))
+            {
+                Console.WriteLine(status);
+            }
+            Console.WriteLine(status);
 
             //Get Users
             // var users = registration.GetAllLuckyUser().Result;
@@ -106,9 +106,9 @@ namespace TestConsole
 
             // var bid = new BidsDto
 
-           // var user = registration.UpdateLuckyUser(4,dto).Result;
-            var account = registration.UpdateUserAccount(5, acctDto);
-            Console.Write(JsonConvert.SerializeObject(account));
+            // var user = registration.UpdateLuckyUser(4,dto).Result;
+           // var account = registration.UpdateUserAccount(5, acctDto);
+           // Console.Write(JsonConvert.SerializeObject(account));
 
             
 

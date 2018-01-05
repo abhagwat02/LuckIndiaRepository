@@ -17,7 +17,7 @@ namespace LuckIndia.Services.RegistrationServices
         public string name { get; set; }
         public string value { get; set; }
     }
-    public class Registration : BaseService
+    public class Registration : BaseService 
     {
         public bool SignIn(string username, string password, out string ErrorString)
         {
@@ -41,7 +41,7 @@ namespace LuckIndia.Services.RegistrationServices
             {
                 HttpResponseMessage response;
                 // New code:
-                response = await _client.GetAsync(path);
+                response = await _client.GetAsync(path,HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
 
                 return response;
             }

@@ -10,12 +10,13 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using LuckIndia.UI.Filters;
 using LuckIndia.UI.Models;
+using LuckIndia.Services.RegistrationServices;
 
 namespace LuckIndia.UI.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         //
         // GET: /Account/Login
@@ -35,9 +36,12 @@ namespace LuckIndia.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+
+            Registration reg = new Registration();
+            string error = "";
+            if (ModelState.IsValid && reg.SignIn(model.UserName, model.Password, out error)) //persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                return RedirectToAction("Index","Quiz");
             }
 
             // If we got this far, something failed, redisplay form
