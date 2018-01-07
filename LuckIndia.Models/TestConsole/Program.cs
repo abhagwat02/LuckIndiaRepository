@@ -66,7 +66,7 @@ namespace TestConsole
 
             //Get Login
             string status;
-            if (registration.SignIn("12345", "p@77w0rDss", out status))
+            if (registration.SignIn("12345", "p@77w0rDss", out status) != null)
             {
                 Console.WriteLine(status);
             }

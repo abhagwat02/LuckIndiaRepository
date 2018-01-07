@@ -333,6 +333,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LuckIndia.Models\LuckIndia.Models\LuckIndia.Models.csproj">
+      <Project>{568cad7a-c60c-496d-9127-4d6e915fd902}</Project>
+      <Name>LuckIndia.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LuckIndia.Models\LuckIndia.Services\LuckIndia.Services.csproj">
       <Project>{a65daad3-8b10-4620-8d10-58ba084ff6b1}</Project>
       <Name>LuckIndia.Services</Name>

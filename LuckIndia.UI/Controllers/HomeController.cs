@@ -1,4 +1,5 @@
-﻿using LuckIndia.Services.RegistrationServices;
+﻿using LuckIndia.APIs.DTO;
+using LuckIndia.Services.RegistrationServices;
 using LuckIndia.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -49,8 +50,8 @@ namespace LuckIndia.UI.Controllers
                     Registration reg = new Registration();
 
                     string strError = "";
-                    bool bSuccess = reg.SignIn(model.UserName, model.Password, out strError);
-                    if (bSuccess)
+                    UserDto user = reg.SignIn(model.UserName, model.Password, out strError);
+                    if (user != null)
                     {
                         Session["UserID"] = model.UserName;
                         return RedirectToAction("Index", "Quiz");

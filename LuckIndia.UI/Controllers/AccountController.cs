@@ -39,10 +39,10 @@ namespace LuckIndia.UI.Controllers
 
             Registration reg = new Registration();
             string error = "";
-            if (ModelState.IsValid && reg.SignIn(model.UserName, model.Password, out error)) //persistCookie: model.RememberMe))
-            {
-                return RedirectToAction("Index","Quiz");
-            }
+            //if (ModelState.IsValid && reg.SignIn(model.UserName, model.Password, out error)) //persistCookie: model.RememberMe))
+            //{
+            //    return RedirectToAction("Index","Quiz");
+            //}
 
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");

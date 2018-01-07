@@ -19,19 +19,20 @@ namespace LuckIndia.Services.RegistrationServices
     }
     public class Registration : BaseService 
     {
-        public bool SignIn(string username, string password, out string ErrorString)
+        public UserDto SignIn(string username, string password, out string ErrorString)
         {
             var userAcct = RetreiveAccount("accounts?$filter=UserName eq\'" + username +"\'").Result;
             var dto = userAcct.Content.ReadAsAsync<AccountDto[]>().Result;
             if (dto.Length > 0)
             {
                 ErrorString = "Found";
-                return dto[0].Password.CompareTo(password) == 0;
+                var user = GetLuckyUserByID(dto.FirstOrDefault().LuckUserID);
+                return dto[0].Password.CompareTo(password) == 0 ? user.Result : null;
             }
             else
             {
                 ErrorString = "User not found";
-                return false;
+                return null;
             }
         }
 
@@ -128,7 +129,7 @@ namespace LuckIndia.Services.RegistrationServices
             {
                 HttpResponseMessage response;
                 // New code:
-                response = await _client.GetAsync("users\\"+Id);
+                response = await _client.GetAsync("users\\"+Id, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
                 var retVal = response.Content.ReadAsAsync<UserDto>().Result;
                 return retVal;
             }
