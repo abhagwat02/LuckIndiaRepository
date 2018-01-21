@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckIndia.APIs", "LuckIndia\LuckIndia.APIs\LuckIndia.APIs.csproj", "{90662BBF-56AA-49E2-9072-00AE23413954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckIndia.DataModel", "LuckIndia\LuckIndia.DataModel\LuckIndia.DataModel.csproj", "{B7549C5B-42F0-4AB5-89CB-65C46A327CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckIndia.Models", "LuckIndia\LuckIndia.Models\LuckIndia.Models.csproj", "{568CAD7A-C60C-496D-9127-4D6E915FD902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckIndia.Services", "LuckIndia\LuckIndia.Services\LuckIndia.Services.csproj", "{A65DAAD3-8B10-4620-8D10-58BA084FF6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckIndia.UI", "LuckIndia\LuckIndia.UI\LuckIndia.UI.csproj", "{2619F808-5861-4C71-8925-042AFC4647AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "LuckIndia\TestConsole\TestConsole.csproj", "{2E1C5C38-90C8-4018-8695-BB5E2A98F2FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90662BBF-56AA-49E2-9072-00AE23413954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90662BBF-56AA-49E2-9072-00AE23413954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90662BBF-56AA-49E2-9072-00AE23413954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90662BBF-56AA-49E2-9072-00AE23413954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7549C5B-42F0-4AB5-89CB-65C46A327CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7549C5B-42F0-4AB5-89CB-65C46A327CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7549C5B-42F0-4AB5-89CB-65C46A327CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7549C5B-42F0-4AB5-89CB-65C46A327CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{568CAD7A-C60C-496D-9127-4D6E915FD902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{568CAD7A-C60C-496D-9127-4D6E915FD902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{568CAD7A-C60C-496D-9127-4D6E915FD902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{568CAD7A-C60C-496D-9127-4D6E915FD902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65DAAD3-8B10-4620-8D10-58BA084FF6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65DAAD3-8B10-4620-8D10-58BA084FF6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65DAAD3-8B10-4620-8D10-58BA084FF6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65DAAD3-8B10-4620-8D10-58BA084FF6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2619F808-5861-4C71-8925-042AFC4647AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2619F808-5861-4C71-8925-042AFC4647AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2619F808-5861-4C71-8925-042AFC4647AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2619F808-5861-4C71-8925-042AFC4647AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1C5C38-90C8-4018-8695-BB5E2A98F2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1C5C38-90C8-4018-8695-BB5E2A98F2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1C5C38-90C8-4018-8695-BB5E2A98F2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1C5C38-90C8-4018-8695-BB5E2A98F2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

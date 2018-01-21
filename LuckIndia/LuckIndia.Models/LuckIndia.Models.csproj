@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{568CAD7A-C60C-496D-9127-4D6E915FD902}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LuckIndia.Models</RootNamespace>
+    <AssemblyName>LuckIndia.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\ManyToManyObjectAttribute.cs" />
+    <Compile Include="Attributes\NonDeletableAttribute.cs" />
+    <Compile Include="Attributes\NonPatchableAttribute.cs" />
+    <Compile Include="DTO\AccountDto.cs" />
+    <Compile Include="DTO\AccountTypeDto.cs" />
+    <Compile Include="DTO\ApiMessage.cs" />
+    <Compile Include="DTO\OptionDto.cs" />
+    <Compile Include="DTO\QuestionDto.cs" />
+    <Compile Include="DTO\QuizDto.cs" />
+    <Compile Include="DTO\UserDto.cs" />
+    <Compile Include="Interfaces\IDTO.cs" />
+    <Compile Include="Interfaces\IExpirable.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IModelDTO.cs" />
+    <Compile Include="Interfaces\IModelPermission.cs" />
+    <Compile Include="Interfaces\ISortable.cs" />
+    <Compile Include="Interfaces\IValidatable.cs" />
+    <Compile Include="Models\AccessToken.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\ModelClass.cs" />
+    <Compile Include="Models\Quiz\Bids.cs" />
+    <Compile Include="Models\Quiz\Option.cs" />
+    <Compile Include="Models\Quiz\Question.cs" />
+    <Compile Include="Models\Quiz\Quiz.cs" />
+    <Compile Include="Models\Quiz\Result.cs" />
+    <Compile Include="Models\Registration\Account.cs" />
+    <Compile Include="Enums\AccountType.cs" />
+    <Compile Include="Models\Registration\LuckUser.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RolePermission.cs" />
+    <Compile Include="Models\RoleType.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Enums\TxnType.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
