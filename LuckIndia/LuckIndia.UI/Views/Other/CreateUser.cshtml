@@ -1,0 +1,117 @@
+﻿@using LuckIndia.UI.Models
+@model CreateUserViewModels
+@{
+    ViewBag.Title = "Create User";
+}
+
+<div class="container">
+    <div class="page-header">
+        <h1>@ViewBag.Title</h1>
+    </div>
+
+    <div class="row">
+        @using (Html.BeginForm("CreateUser", "Other", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserID, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.UserID, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Role, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8 control-label" style="text-align:left">
+                        @Html.DropDownList("Role", "Select Role")
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AuthType, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8 control-label" style="text-align:left">
+                        @Html.DropDownList("AuthType", "Auth Type")
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Commision, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Commision, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsVisible, new { @class = "col-md-7 control-label" })
+                    <div class="col-md-5 control-label" style="text-align:left">
+                        @Html.CheckBoxFor(m => m.IsVisible)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsRestricted, new { @class = "col-md-7 control-label" })
+                    <div class="col-md-5 control-label" style="text-align:left">
+                        @Html.CheckBoxFor(m => m.IsRestricted)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsAllowed, new { @class = "col-md-7 control-label" })
+                    <div class="col-md-5 control-label" style="text-align:left">
+                        @Html.CheckBoxFor(m => m.IsAllowed)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsActive, new { @class = "col-md-7 control-label" })
+                    <div class="col-md-5 control-label" style="text-align:left">
+                        @Html.CheckBoxFor(m => m.IsActive)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-default" value="Submit" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

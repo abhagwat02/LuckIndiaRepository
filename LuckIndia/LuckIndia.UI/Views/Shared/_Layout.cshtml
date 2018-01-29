@@ -1,63 +1,84 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport"  />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <img src="~/Images/banner.jpg" alt="" />
-                <div class="float-left" style="background : gold">                    
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                            <li>@Html.ActionLink("REGISTER", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
-                            <li>@Html.ActionLink("RESULT", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("LOGIN", "Login", "Home")</li>
-                            <li>@Html.ActionLink("QUIZ", "Index", "Quiz")</li>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
-                        </ul>
-                    </nav>
-                </div>
+</head>
+<body>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>Quiz</span>India Admin</a>
             </div>
-        </header>
-        <div style="clear: both; height: 10px;">
         </div>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <div style="clear: both; height: 10px;">
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left" style="vertical-align: middle">
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                            <li>@Html.ActionLink("REGISTER", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
-                            <li>@Html.ActionLink("RESULT", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("LOGIN", "Login", "Home")</li>
-                            <li>@Html.ActionLink("QUIZ", "Index", "Quiz")</li>
-
-                        </ul>
-                    </nav>
-                </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <div class="profile-sidebar">
+            <div class="profile-userpic">
+                <img src="~/Images/banner.jpg" class="img-thumbnail" alt="">
             </div>
-        </footer>
+            <div class="profile-usertitle">
+                <div class="profile-usertitle-name">
+                    <label id="lblUserName" text=""></label>
+                </div>
+                <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="divider"></div>
+        <ul class="nav menu">
+            <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+            <li class="parent ">
+                <a data-toggle="collapse" href="#sub-item-1">
+                    <em class="fa fa-navicon">&nbsp;</em> Quiz Game  <span data-toggle="collapse" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                </a>
+                <ul class="children collapse" id="sub-item-1">
+                    <li>@Html.ActionLink("Play Game", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Declare Result", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Bought Title", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Back Date Business", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Enter Game Price Detail", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Create Game Story", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Game Admin Result", "Index", "QuizGame")</li>
+                    <li>@Html.ActionLink("Block Quiz Game", "Index", "QuizGame")</li>
+                </ul>
+            </li>
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+            <li>@Html.ActionLink("Create User", "CreateUser", "Other")</li>
+            <li>@Html.ActionLink("Result", "Contact", "Home")</li>
+
+            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+        </ul>
+    </div>
+    <!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="content container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - LuckIndia</p>
+            </footer>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

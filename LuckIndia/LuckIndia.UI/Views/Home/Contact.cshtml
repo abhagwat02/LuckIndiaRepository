@@ -1,42 +1,96 @@
-﻿@model LuckIndia.UI.Models.LoginModel
+﻿@model LuckIndia.UI.Models.ContactViewModel
 
 @{
     ViewBag.Title = "Contact Us";
 }
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Contact Us</h2>
+            <hr />
+            <p>
+                Customer Care Enquiry
+            </p>
+            <p>
+                Mobile:- +91 84201 96961
+            </p>
+        </div>
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
+        <div class="col-md-6">  
+         
+             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+             {
+                <h2 class="col-md-offset-2" >Send Your Enquiry</h2>
+                 <hr />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MobileNumber, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows=4})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Enquiry, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(m => m.Enquiry, new { @class = "form-control", rows=4 })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" class="btn btn-default" value="Submit"/>
+                        </div>
+                    </div>
+             }  
+        
 
-<section id="loginForm">
-    <p>
-        Customer Care Enquiry
-    </p>
-    <p>
-        Mobile:- +91 84201 96961
-    </p>
-</section>
+        </div>
+    </div>
 
-<section class="social" id="socialLoginForm">
-    <h2>Send Your Enquiry</h2>
-    <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.DisplayTextFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-        </ol>
-        <input type="submit" value="Log in" />
-    </fieldset>
-</section>
+
+    <div id="themodal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dissmiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Hello!</h4>
+            </div>
+            <div class="modal-body">
+                <p>This is coming...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dissmiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            var showModal = function () {
+                $("#themodal").modal("show");
+            };
+
+            $("#submit").click(showModal);
+        });
+    </script>
+
+}
