@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LuckIndia.APIs</RootNamespace>
     <AssemblyName>LuckIndia.APIs</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -280,6 +280,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OptionsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\RestApiController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -293,6 +294,7 @@
     <Compile Include="Factories\OptionFactory.cs" />
     <Compile Include="Factories\QuestionFactory.cs" />
     <Compile Include="Factories\LuckUserFactory.cs" />
+    <Compile Include="Factories\QuestionQuizMapFactory.cs" />
     <Compile Include="Factories\QuizFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

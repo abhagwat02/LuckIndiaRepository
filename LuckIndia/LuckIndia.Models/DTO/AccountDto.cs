@@ -1,11 +1,13 @@
-﻿using LuckIndia.Models.Interfaces;
+﻿using LuckIndia.Models.Attributes;
+using LuckIndia.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LuckIndia.APIs.DTO 
+namespace LuckIndia.Models.DTO
 {
+    [Include]
     public class AccountDto : IModelDTO
     {
         public int? Id { get; set; }
@@ -18,6 +20,7 @@ namespace LuckIndia.APIs.DTO
         public AccountTypeDto Type { get; set; }
         public int LuckUserID { get; set; }
         public int? AccountTypeID { get; set; }
+        [Include]
         public UserDto user { get; set; }
 
     }

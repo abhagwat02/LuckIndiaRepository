@@ -142,6 +142,8 @@ namespace LuckIndia.DataModel.Migrations
             
             #endregion
 
+            
+
             context.Users.AddOrUpdate(new User() { Id = 1, FirstName = "CMD", LastName = "Dashboard", Email = "cmddashboard@Integration.com", UserName = "cmddash", PasswordHash = "dash", IsActive = true, RequirePasswordReset = false, DefaultLanguage = "En-US", DateOfBirth = null, Gender = " " });
             context.AccessTokens.AddOrUpdate(y => y.Id, new AccessToken() { Id = 1, ApplicationId = 1, UserId = 1, Token = "e897aa05df964d188472839559cfd080" });
 
@@ -167,6 +169,8 @@ namespace LuckIndia.DataModel.Migrations
             CreateOrUpdateModelPermissions(context, "Question", "Questions", "Desc", roleIDForLuckIndia, true, true, true);
             CreateOrUpdateModelPermissions(context, "Quiz", "Quizs", "Desc", roleIDForLuckIndia, true, true, true);
             CreateOrUpdateModelPermissions(context, "Result", "Results", "Desc", roleIDForLuckIndia, true, true, true);
+
+            
         }
 
 

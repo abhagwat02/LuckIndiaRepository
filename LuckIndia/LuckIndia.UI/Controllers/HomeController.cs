@@ -1,4 +1,4 @@
-﻿using LuckIndia.APIs.DTO;
+﻿using LuckIndia.Models.DTO;
 using LuckIndia.Services.RegistrationServices;
 using LuckIndia.UI.Models;
 using System;

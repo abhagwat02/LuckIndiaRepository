@@ -1,5 +1,5 @@
-﻿using LuckIndia.APIs.DTO;
-using LuckIndia.Models;
+﻿using LuckIndia.Models;
+using LuckIndia.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +48,7 @@ namespace LuckIndia.APIs.Factories
                     DateModified = model.DateModified,
                     LuckUserID = model.LuckUserID,
                     AccountTypeID = model.AccountTypeID,
-                    //user = new LuckUserFactory().ToDTO(model.user),
+                    user = new LuckUserFactory().ToDTO(model.user),
                     Type = new AccountTypeFactory().ToDTO(model.Type)
                 };
                 return dto;

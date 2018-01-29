@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LuckIndia.APIs.DTO
+namespace LuckIndia.Models.DTO
 {
     [Include]
     public class OptionDto : IModelDTO

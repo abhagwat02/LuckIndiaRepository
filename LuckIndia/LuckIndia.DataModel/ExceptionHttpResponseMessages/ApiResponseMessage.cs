@@ -3,8 +3,8 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
-using LuckIndia.APIs.DTO;
 using LuckIndia.DataModel.Enums;
+using LuckIndia.Models.DTO;
 
 namespace LuckIndia.DataModel.ExceptionHttpResponseMessages
 {

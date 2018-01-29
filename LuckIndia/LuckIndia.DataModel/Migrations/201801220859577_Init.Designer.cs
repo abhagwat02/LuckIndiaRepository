@@ -13,7 +13,7 @@ namespace LuckIndia.DataModel.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801021636393_Init"; }
+            get { return "201801220859577_Init"; }
         }
         
         string IMigrationMetadata.Source

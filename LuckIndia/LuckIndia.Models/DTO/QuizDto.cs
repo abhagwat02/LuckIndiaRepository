@@ -1,5 +1,4 @@
-﻿using LuckIndia.APIs.DTO;
-using LuckIndia.Models.Interfaces;
+﻿using LuckIndia.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

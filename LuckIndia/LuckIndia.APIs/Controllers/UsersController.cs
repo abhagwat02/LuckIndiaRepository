@@ -1,5 +1,6 @@
-﻿using LuckIndia.APIs.DTO;
+﻿
 using LuckIndia.Models;
+using LuckIndia.Models.DTO;
 
 namespace LuckIndia.APIs.Controllers
 {

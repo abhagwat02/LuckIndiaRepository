@@ -1,4 +1,4 @@
-﻿using LuckIndia.APIs.DTO;
+﻿using LuckIndia.Models.DTO;
 using LuckIndia.APIs.HttpExtension;
 using LuckIndia.Models;
 using Newtonsoft.Json;

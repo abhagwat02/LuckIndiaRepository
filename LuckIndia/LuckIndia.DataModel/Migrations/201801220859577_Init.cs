@@ -7,22 +7,23 @@ namespace LuckIndia.DataModel.Migrations
     {
         public override void Up()
         {
-            //DropTable("Transactions");
-            //DropTable("TxnTypes");
-            //DropTable("Bids");
-            //DropTable("Accounts");
-            //DropTable("AccountTypes");
-            //DropTable("LuckUsers");
-            //DropTable("Results");
-            //DropTable("Options");
-            //DropTable("Questions");
-            //DropTable("Quizs");
-            //DropTable("AccessTokens");
-            //DropTable("Users");
-            //DropTable("RolePermissions");
-            //DropTable("ModelClasses");
-            //DropTable("Roles");
-            //DropTable("RoleTypes");
+            DropTable("Transactions");
+            DropTable("TxnTypes");
+            DropTable("Bids");
+            DropTable("Accounts");
+            DropTable("AccountTypes");
+            DropTable("LuckUsers");
+            DropTable("Results");
+            DropTable("Options");
+            DropTable("QuizQuestionMaps");
+            DropTable("Questions");
+            DropTable("Quizs");
+            DropTable("AccessTokens");
+            DropTable("Users");
+            DropTable("RolePermissions");
+            DropTable("ModelClasses");
+            DropTable("Roles");
+            DropTable("RoleTypes");
             CreateTable(
                 "dbo.AccessTokens",
                 c => new

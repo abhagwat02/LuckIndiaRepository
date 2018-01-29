@@ -1,5 +1,5 @@
-﻿using LuckIndia.APIs.DTO;
-using LuckIndia.Models;
+﻿using LuckIndia.Models;
+using LuckIndia.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +19,7 @@ namespace LuckIndia.APIs.Factories
             {
                 DateCreated = dto.DateCreated,
                 DateModified = dto.DateModified,
+                Last = dto.Last,
                 Options = dto.Options.Select(x => new OptionFactory().FromDTO(x)).ToList(),
                 Statement = dto.Statement
             };
@@ -37,6 +38,7 @@ namespace LuckIndia.APIs.Factories
                 DateCreated = model.DateCreated,
                 DateModified = model.DateModified,
                 Statement = model.Statement,
+                Last = model.Last,
                 Options = model.Options.Select(x => new OptionFactory().ToDTO(x)).ToList(),
 
             };

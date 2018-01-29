@@ -1,4 +1,4 @@
-﻿using LuckIndia.APIs.DTO;
+﻿using LuckIndia.Models.DTO;
 using LuckIndia.Services.RegistrationServices;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace LuckIndia.Services.QuizServices
             {
                 HttpResponseMessage response;
                 // New code:
-                response = await _client.GetAsync("questions");
+                response = await _client.GetAsync("questions", HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
                 var retVal = response.Content.ReadAsAsync<QuestionDto[]>().Result;
 
                 return retVal;
@@ -44,6 +44,20 @@ namespace LuckIndia.Services.QuizServices
             }
             return null;
         }
+
+
+        public async Task<QuestionDto> CrateDailyQuiz()
+        {
+            var allQuestions = GetAllQuestions().Result.ToList();
+            
+
+            int nStartTime = 8;
+
+
+            return null;
+        }
+
+
 
 
     }

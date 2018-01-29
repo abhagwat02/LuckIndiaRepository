@@ -1,6 +1,6 @@
-﻿using System;
+﻿using LuckIndia.Models.DTO;
+using System;
 using System.Net;
-using LuckIndia.APIs.DTO;
 
 namespace LuckIndia.DataModel.ExceptionHttpResponseMessages
 

@@ -1,7 +1,7 @@
 ﻿
 using LuckIndia.Models.Interfaces;
 
-namespace LuckIndia.APIs.DTO
+namespace LuckIndia.Models.DTO
 {
     /// <summary>
     /// ApiMessage class used for Get/Set property like message, data object

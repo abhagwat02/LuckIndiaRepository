@@ -1,28 +1,23 @@
 ﻿using LuckIndia.Models.Attributes;
+using LuckIndia.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace LuckIndia.Models
+namespace LuckIndia.Models.DTO
 {
-    [Include]
-    public class Question:Model
+    public class QuestionQuizMapDto: IModelDTO
     {
+        public int? Id { get; set; }
+        public int QuizId { get; set; }
+        public int QuestionId { get; set; }
+        public QuestionDto question { get; set; }
+        public QuizDto quiz { get; set; }
+   
 
-        public Question()
-        {
-            Options = new HashSet<Option>();
-        }
-        public override int Id { get; set; }
-
-        public String Statement { get; set; }
-        public bool Last { get; set; }
-
-        [Include]
-        public ICollection<Option> Options { get; set; }
-    
         private DateTime _createdDate;
         [NonPatchable]
         [Column(TypeName = "datetime2")]

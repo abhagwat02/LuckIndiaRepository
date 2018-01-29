@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 using LuckIndia.APIs.DAL.Exceptions;
-using LuckIndia.APIs.DTO;
+using LuckIndia.Models.DTO;
 
 namespace LuckIndia.DataModel.ExceptionHttpResponseMessages
 

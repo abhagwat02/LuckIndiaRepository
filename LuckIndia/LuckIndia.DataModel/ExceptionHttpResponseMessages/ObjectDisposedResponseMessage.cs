@@ -1,4 +1,4 @@
-﻿using LuckIndia.APIs.DTO;
+﻿using LuckIndia.Models.DTO;
 using System;
 using System.Diagnostics;
 using System.Net;

@@ -1,5 +1,5 @@
-﻿using LuckIndia.APIs.DTO;
-using LuckIndia.Models;
+﻿using LuckIndia.Models;
+using LuckIndia.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +48,7 @@ namespace LuckIndia.APIs.Factories
                 PhoeNumber = model.PhoeNumber,
                 DateCreated = model.DateCreated,
                 DateModified = model.DateModified,
-                accounts = model.accounts.Select(x => new AccountFactory().ToDTO(x)).ToList()
+                //accounts = model.accounts.Select(x => new AccountFactory().ToDTO(x)).ToList()
             };
            return dto;
         }

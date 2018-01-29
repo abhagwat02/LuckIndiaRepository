@@ -1,6 +1,4 @@
-﻿using LuckIndia.APIs.Models;
-using LuckIndia.DataModel;
-using LuckIndia.Models;
+﻿using LuckIndia.Models;
 using LuckIndia.Models.DTO;
 using System;
 using System.Collections.Generic;
@@ -11,9 +9,9 @@ using System.Web.Http;
 
 namespace LuckIndia.APIs.Controllers
 {
-    public class AccountsController : RestApiController<Account, AccountDto>
+    public class QuizController : RestApiController<Quiz, QuizDto>
     {
-        public override IHttpActionResult Post(AccountDto postedDto)
+        public override IHttpActionResult Post(QuizDto postedDto)
         {
             postedDto.DateCreated = DateTime.Now;
             postedDto.DateModified = DateTime.Now;

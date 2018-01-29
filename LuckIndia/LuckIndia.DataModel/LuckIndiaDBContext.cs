@@ -18,6 +18,7 @@ using LuckIndia.DataModel.DAL.CrudHelpers;
 using Alphaeon.Services.EnterpriseAPI.DAL.CrudHelpers;
 using LuckIndia.DataModel.LoggingServices;
 using LuckIndia.Models.Attributes;
+using LuckIndia.Models;
 
 namespace LuckIndia.DataModel
 {
@@ -142,6 +143,7 @@ namespace LuckIndia.DataModel
         public DbSet<Result> Results { get; set; }
         public DbSet<TxnType> TxnTypes { get; set; }
         public DbSet<AccountType> AcctTypes { get; set; }
+        public DbSet<QuestionQuizMap> QuestionQuizMaps { get; set; }
 
         #endregion
         /// <summary>
