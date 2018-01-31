@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(LuckIndia.UI.Startup))]
+[assembly: OwinStartupAttribute("LuckIndiaUI",typeof(LuckIndia.UI.Startup))]
 namespace LuckIndia.UI
 {
     public partial class Startup

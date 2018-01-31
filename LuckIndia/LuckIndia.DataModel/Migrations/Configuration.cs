@@ -113,7 +113,7 @@ namespace LuckIndia.DataModel.Migrations
 
             var accounts_user1 = new List<Account>
             {
-                new Account {  CardNumber = 1111, Type = accttypes[0], DateCreated = DateTime.Now, DateModified = DateTime.Now,LuckUserID = luckAtulId,AccountTypeID = accttypes[0].Id},
+                new Account {  CardNumber = 1111, Type = accttypes[0], UserName = "Indra",Password = "password",DateCreated = DateTime.Now, DateModified = DateTime.Now,LuckUserID = luckAtulId,AccountTypeID = accttypes[0].Id},
                 new Account {  CardNumber = 2222, Type = accttypes[1], DateCreated = DateTime.Now, DateModified = DateTime.Now,LuckUserID = luckAtulId,AccountTypeID = accttypes[1].Id},
             };
             accounts_user1.ForEach(d => context.Accounts.AddOrUpdate(d));

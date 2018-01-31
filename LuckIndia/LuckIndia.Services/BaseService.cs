@@ -1,5 +1,4 @@
-﻿using LuckIndia.APIs.Models;
-using LuckIndia.DataModel;
+﻿using LuckIndia.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,7 @@ namespace LuckIndia.Services
 
         public BaseService()
         {
-            BaseUri = /*"http://luckindiaapi.azurewebsites.net/";*/ "http://localhost:7721/";
+            BaseUri = "http://luckindiaapi.azurewebsites.net/";//"http://localhost:7721/";
             _client = new HttpClient();
             _client.BaseAddress = new Uri(BaseUri);
             _client.DefaultRequestHeaders.Accept.Clear();

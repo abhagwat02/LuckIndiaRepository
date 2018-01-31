@@ -3,27 +3,10 @@ namespace LuckIndia.DataModel.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
-            DropTable("Transactions");
-            DropTable("TxnTypes");
-            DropTable("Bids");
-            DropTable("Accounts");
-            DropTable("AccountTypes");
-            DropTable("LuckUsers");
-            DropTable("Results");
-            DropTable("Options");
-            DropTable("QuizQuestionMaps");
-            DropTable("Questions");
-            DropTable("Quizs");
-            DropTable("AccessTokens");
-            DropTable("Users");
-            DropTable("RolePermissions");
-            DropTable("ModelClasses");
-            DropTable("Roles");
-            DropTable("RoleTypes");
             CreateTable(
                 "dbo.AccessTokens",
                 c => new
@@ -143,6 +126,7 @@ namespace LuckIndia.DataModel.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Statement = c.String(),
+                        Last = c.Boolean(nullable: false),
                         DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         Quiz_Id = c.Int(),
@@ -217,6 +201,20 @@ namespace LuckIndia.DataModel.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.QuestionQuizMaps",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        QuizId = c.Int(nullable: false),
+                        QuestionId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Questions", t => t.QuestionId)
+                .ForeignKey("dbo.Quizs", t => t.QuizId)
+                .Index(t => t.QuizId)
+                .Index(t => t.QuestionId);
+            
+            CreateTable(
                 "dbo.Results",
                 c => new
                     {
@@ -274,6 +272,8 @@ namespace LuckIndia.DataModel.Migrations
             DropForeignKey("dbo.Transactions", "Bid_Id", "dbo.Bids");
             DropForeignKey("dbo.Results", "SelectedQuiz_Id", "dbo.Quizs");
             DropForeignKey("dbo.Results", "CorrectOption_Id", "dbo.Options");
+            DropForeignKey("dbo.QuestionQuizMaps", "QuizId", "dbo.Quizs");
+            DropForeignKey("dbo.QuestionQuizMaps", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Roles", "RoleTypeId", "dbo.RoleTypes");
             DropForeignKey("dbo.RolePermissions", "RoleId", "dbo.Roles");
             DropForeignKey("dbo.RolePermissions", "ModelClassId", "dbo.ModelClasses");
@@ -289,6 +289,8 @@ namespace LuckIndia.DataModel.Migrations
             DropIndex("dbo.Transactions", new[] { "Bid_Id" });
             DropIndex("dbo.Results", new[] { "SelectedQuiz_Id" });
             DropIndex("dbo.Results", new[] { "CorrectOption_Id" });
+            DropIndex("dbo.QuestionQuizMaps", new[] { "QuestionId" });
+            DropIndex("dbo.QuestionQuizMaps", new[] { "QuizId" });
             DropIndex("dbo.Roles", new[] { "RoleTypeId" });
             DropIndex("dbo.RolePermissions", new[] { "ModelClassId" });
             DropIndex("dbo.RolePermissions", new[] { "RoleId" });
@@ -302,6 +304,7 @@ namespace LuckIndia.DataModel.Migrations
             DropTable("dbo.TxnTypes");
             DropTable("dbo.Transactions");
             DropTable("dbo.Results");
+            DropTable("dbo.QuestionQuizMaps");
             DropTable("dbo.RoleTypes");
             DropTable("dbo.Roles");
             DropTable("dbo.RolePermissions");

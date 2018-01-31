@@ -47,16 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpExtension\HttpClientExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizServices\QuizService.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="RegistrationServices\Registration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LuckIndia.APIs\LuckIndia.APIs.csproj">
-      <Project>{90662bbf-56aa-49e2-9072-00ae23413954}</Project>
-      <Name>LuckIndia.APIs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LuckIndia.DataModel\LuckIndia.DataModel.csproj">
       <Project>{b7549c5b-42f0-4ab5-89cb-65c46a327cee}</Project>
       <Name>LuckIndia.DataModel</Name>

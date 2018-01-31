@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(LuckIndia.APIs.Startup))]
+[assembly: OwinStartup("LuckIndiaAPI",typeof(LuckIndia.APIs.Startup))]
 
 namespace LuckIndia.APIs
 {

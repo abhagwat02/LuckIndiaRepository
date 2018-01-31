@@ -46,17 +46,33 @@ namespace LuckIndia.Services.QuizServices
         }
 
 
-        public async Task<QuestionDto> CrateDailyQuiz()
+        public void CrateDailyQuiz()
         {
             var allQuestions = GetAllQuestions().Result.ToList();
-            
+            var orderedList = allQuestions.OrderBy(x => x.Id).ToList();
+            var lastUpdatedItem = orderedList.Where(x => x.Last == true).ToList();
+            if(lastUpdatedItem.Count() != 0)
+            {
 
+            }
+            else
+            {
+                var finalList = GetQuestionsInCircularWay(orderedList, orderedList.IndexOf(lastUpdatedItem.FirstOrDefault()));
+
+            }
             int nStartTime = 8;
 
 
-            return null;
         }
 
+        public IEnumerable<QuestionDto> GetQuestionsInCircularWay(IList<QuestionDto> fullList, int nIndex)
+        {
+            List<QuestionDto> list = fullList.Skip(nIndex).ToList();
+            int index = 0;
+
+            while (true)
+                yield return list[index++ % list.Count];
+        }
 
 
 

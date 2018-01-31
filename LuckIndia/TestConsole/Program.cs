@@ -1,7 +1,5 @@
-﻿using LuckIndia.APIs.DTO;
-using LuckIndia.Services.QuizServices;
+﻿using LuckIndia.Services.QuizServices;
 using LuckIndia.Services.RegistrationServices;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,12 +63,12 @@ namespace TestConsole
             //var returned =  res.Content.ReadAsAsync<UserDto>().Result;
 
             //Get Login
-            string status;
-            if (registration.SignIn("12345", "p@77w0rDss", out status) != null)
-            {
-                Console.WriteLine(status);
-            }
-            Console.WriteLine(status);
+            //string status;
+            //if (registration.SignIn("12345", "p@77w0rDss", out status) != null)
+            //{
+            //    Console.WriteLine(status);
+            //}
+            //Console.WriteLine(status);
 
             //Get Users
             // var users = registration.GetAllLuckyUser().Result;
@@ -100,7 +98,8 @@ namespace TestConsole
             //    Options = option
             //};
 
-            //QuizService quizService = new QuizService();
+            QuizService quizService = new QuizService();
+            quizService.CrateDailyQuiz();
             //// var questions = quizService.GetAllQuestions().Result;
             //var Ques = quizService.CrateQuestion(ques).Result;
 
@@ -109,6 +108,8 @@ namespace TestConsole
             // var user = registration.UpdateLuckyUser(4,dto).Result;
            // var account = registration.UpdateUserAccount(5, acctDto);
            // Console.Write(JsonConvert.SerializeObject(account));
+
+            
 
             
 
