@@ -1,4 +1,5 @@
-﻿using LuckIndia.UI.Models;
+﻿using LuckIndia.Services.QuizServices;
+using LuckIndia.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,17 @@ namespace LuckIndia.UI.Controllers
         PlayQuizModel model = new PlayQuizModel(); 
         public QuizGameController()
         {
-            model.QuizType.Add(
-                "Quiz 1"
-                                );
+            QuizService service = new QuizService();
+            var quiztypes = service.GetQuizTypes();
+            if (quiztypes != null)
+            {
+                var result = quiztypes.Result;
+                result.ToList().ForEach
+                (
+                m => model.QuizType.Add(m)
+                );
+            }
 
-            model.QuizType.Add(
-               "Quiz 2"
-                               );
-            model.QuizType.Add(
-               "Quiz 3"
-                               );
         }
         // GET: QuizGame
         public ActionResult Index()

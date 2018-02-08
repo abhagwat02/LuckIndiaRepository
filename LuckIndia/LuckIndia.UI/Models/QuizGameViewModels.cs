@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LuckIndia.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace LuckIndia.UI.Models
     {
         public PlayQuizModel()
         {
-            QuizType = new List<string>();
+            QuizType = new List<QuizTypeDto>();
         }
-        public List<String> QuizType { get; set; }
+        public List<QuizTypeDto> QuizType { get; set; }
 
         [Display(Name = "Story:")]
         public string Story { get; set; }
