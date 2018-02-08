@@ -70,24 +70,33 @@ namespace LuckIndia.UI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
+                Registration reg = new Registration();
+                String error = "";
+                UserDto user = reg.SignIn(model.Email, model.Password, out error);
+                if (user != null)
+                {
+                    if (!String.IsNullOrEmpty(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        Session["UserInfo"] = user;
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                }
             }
 
+            // If we got this far, something failed, redisplay form
+            return View(model);
 
-            Registration reg = new Registration();
-            String error = "";
-            UserDto user =  reg.SignIn(model.Email, model.Password, out error);
-            if(user!=null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Invalid login attempt.");
-            }
-            return View(user);
+         
 
             //// This doesn't count login failures towards account lockout
             //// To enable password failures to trigger account lockout, change to shouldLockout: true

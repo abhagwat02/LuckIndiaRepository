@@ -3,6 +3,8 @@
     ViewBag.Title = "Play Quiz Game";
 }
 
+@using (Html.BeginForm("Index", "QuizGame", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
 <div class="container">
     <div class="page-header">
         <h2>@ViewBag.Title</h2>
@@ -15,12 +17,20 @@
                         @Html.Label("Name of Game: ")
                     </div>
                     <div class="col-md-4">
-                        @Html.DropDownList("Game", new List<SelectListItem>
-               {
-                   new SelectListItem{ Text="Fun Quiz", Value = "1" },
-                        new SelectListItem{ Text="Lucky Quiz", Value = "2" },
-                        new SelectListItem{ Text="Wonder Quiz", Value = "3" },
-               }, "Select Quiz")
+                        @{                         
+                            var selectlist = new List<SelectListItem>();
+                            Model.QuizType.ForEach( m=>
+                                    selectlist.Add(
+                                        new SelectListItem
+                                        {
+                                          Text = m,
+                                          Value = m  
+                                        }
+                                    )
+                                );               
+                        }
+                        @Html.DropDownList("Game", selectlist, "Select Quiz");
+                        
                     </div>
                     <div class="col-md-4">
                         @Html.Label("Current Balance : ")
@@ -155,5 +165,6 @@
         </div>
     </div>
 </div>
+}
 
 

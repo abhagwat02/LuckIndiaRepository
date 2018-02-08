@@ -22,16 +22,27 @@ namespace LuckIndia.Services.RegistrationServices
         public UserDto SignIn(string username, string password, out string ErrorString)
         {
             var userAcct = RetreiveAccount("accounts?$filter=UserName eq\'" + username +"\'").Result;
-            var dto = userAcct.Content.ReadAsAsync<AccountDto[]>().Result;
-            if (dto.Length > 0)
+
+            if (userAcct != null && userAcct.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                ErrorString = "Found";
-                var user = GetLuckyUserByID(dto.FirstOrDefault().LuckUserID);
-                return dto[0].Password.CompareTo(password) == 0 ? user.Result : null;
+                var dto = userAcct.Content.ReadAsAsync<AccountDto[]>().Result;
+                if (dto.Length > 0)
+                {
+                    ErrorString = "Found";
+                    var user = GetLuckyUserByID(dto.FirstOrDefault().LuckUserID);
+                    return dto[0].Password.CompareTo(password) == 0 ? user.Result : null;
+                }
+                else
+                {
+                    ErrorString = "User not found";
+                    return null;
+                }
             }
             else
             {
-                ErrorString = "User not found";
+                ErrorString = "Error occured ";
+                if( userAcct != null)
+                    ErrorString += userAcct.StatusCode + userAcct.ReasonPhrase;
                 return null;
             }
         }

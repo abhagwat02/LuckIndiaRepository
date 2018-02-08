@@ -9,6 +9,12 @@ namespace LuckIndia.UI.Models
 {
     public class PlayQuizModel
     {
+        public PlayQuizModel()
+        {
+            QuizType = new List<string>();
+        }
+        public List<String> QuizType { get; set; }
+
         [Display(Name = "Story:")]
         public string Story { get; set; }
 
