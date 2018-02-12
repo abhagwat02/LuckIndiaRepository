@@ -20,9 +20,8 @@ namespace LuckIndia.APIs.Factories
                 DateCreated = dto.DateCreated,
                 DateModified = dto.DateModified,
                 EndTime = dto.EndTime,
-                QuizName = dto.QuizName,
                 StartTime = dto.StartTime,
-                Questions = dto.Questions.Select(x=> new QuestionFactory().FromDTO(x)).ToList()
+                QuizTypeId = dto.QuizTypeId
                 
                 
             };
@@ -37,12 +36,14 @@ namespace LuckIndia.APIs.Factories
             }
             var dto = new QuizDto
             {
+                Id = model.Id,
                 DateCreated = model.DateCreated,
                 DateModified = model.DateModified,
                 EndTime = model.EndTime,
-                QuizName = model.QuizName,
                 StartTime = model.StartTime,
-                Questions = model.Questions.Select(x => new QuestionFactory().ToDTO(x)).ToList()
+                QuizTypeId = model.QuizTypeId,
+                type = new QuizTypeFactory().ToDTO(model.type)
+                
             };
             return dto;
         }

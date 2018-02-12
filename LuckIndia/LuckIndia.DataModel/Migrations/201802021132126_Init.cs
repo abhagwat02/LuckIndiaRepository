@@ -3,10 +3,30 @@ namespace LuckIndia.DataModel.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
+
+            //DropTable("Transactions");
+            //DropTable("TxnTypes");
+            //DropTable("Bids");
+            //DropTable("Accounts");
+            //DropTable("AccountTypes");
+            //DropTable("LuckUsers");
+            //DropTable("Results");
+            //DropTable("Options");
+            //DropTable("QuestionQuizMaps");
+            //DropTable("Questions");
+            //DropTable("Quizs");
+            // DropTable("QuizTypes");
+            //DropTable("AccessTokens");
+            //DropTable("Users");
+            //DropTable("RolePermissions");
+            //DropTable("ModelClasses");
+            //DropTable("Roles");
+            //DropTable("RoleTypes");
+
             CreateTable(
                 "dbo.AccessTokens",
                 c => new
@@ -112,42 +132,26 @@ namespace LuckIndia.DataModel.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        QuizName = c.String(),
+                        QuizTypeId = c.Int(nullable: false),
                         StartTime = c.DateTime(nullable: false),
                         EndTime = c.DateTime(nullable: false),
                         DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.QuizTypes", t => t.QuizTypeId)
+                .Index(t => t.QuizTypeId);
+            
+            CreateTable(
+                "dbo.QuizTypes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        name = c.String(),
+                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                    })
                 .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Questions",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Statement = c.String(),
-                        Last = c.Boolean(nullable: false),
-                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        Quiz_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Quizs", t => t.Quiz_Id)
-                .Index(t => t.Quiz_Id);
-            
-            CreateTable(
-                "dbo.Options",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Content = c.String(),
-                        QuestionID = c.Int(nullable: false),
-                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Questions", t => t.QuestionID)
-                .Index(t => t.QuestionID);
             
             CreateTable(
                 "dbo.ModelClasses",
@@ -197,6 +201,32 @@ namespace LuckIndia.DataModel.Migrations
                     {
                         Id = c.Int(nullable: false),
                         Title = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Options",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Content = c.String(),
+                        QuestionID = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Questions", t => t.QuestionID)
+                .Index(t => t.QuestionID);
+            
+            CreateTable(
+                "dbo.Questions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Statement = c.String(),
+                        Last = c.Boolean(nullable: false),
+                        DateCreated = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        DateModified = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -274,13 +304,13 @@ namespace LuckIndia.DataModel.Migrations
             DropForeignKey("dbo.Results", "CorrectOption_Id", "dbo.Options");
             DropForeignKey("dbo.QuestionQuizMaps", "QuizId", "dbo.Quizs");
             DropForeignKey("dbo.QuestionQuizMaps", "QuestionId", "dbo.Questions");
+            DropForeignKey("dbo.Options", "QuestionID", "dbo.Questions");
             DropForeignKey("dbo.Roles", "RoleTypeId", "dbo.RoleTypes");
             DropForeignKey("dbo.RolePermissions", "RoleId", "dbo.Roles");
             DropForeignKey("dbo.RolePermissions", "ModelClassId", "dbo.ModelClasses");
             DropForeignKey("dbo.Bids", "PlayingAccount_Id", "dbo.Accounts");
             DropForeignKey("dbo.Bids", "PlayedQuiz_Id", "dbo.Quizs");
-            DropForeignKey("dbo.Questions", "Quiz_Id", "dbo.Quizs");
-            DropForeignKey("dbo.Options", "QuestionID", "dbo.Questions");
+            DropForeignKey("dbo.Quizs", "QuizTypeId", "dbo.QuizTypes");
             DropForeignKey("dbo.Accounts", "LuckUserID", "dbo.LuckUsers");
             DropForeignKey("dbo.Accounts", "AccountTypeID", "dbo.AccountTypes");
             DropForeignKey("dbo.AccessTokens", "UserId", "dbo.Users");
@@ -291,11 +321,11 @@ namespace LuckIndia.DataModel.Migrations
             DropIndex("dbo.Results", new[] { "CorrectOption_Id" });
             DropIndex("dbo.QuestionQuizMaps", new[] { "QuestionId" });
             DropIndex("dbo.QuestionQuizMaps", new[] { "QuizId" });
+            DropIndex("dbo.Options", new[] { "QuestionID" });
             DropIndex("dbo.Roles", new[] { "RoleTypeId" });
             DropIndex("dbo.RolePermissions", new[] { "ModelClassId" });
             DropIndex("dbo.RolePermissions", new[] { "RoleId" });
-            DropIndex("dbo.Options", new[] { "QuestionID" });
-            DropIndex("dbo.Questions", new[] { "Quiz_Id" });
+            DropIndex("dbo.Quizs", new[] { "QuizTypeId" });
             DropIndex("dbo.Bids", new[] { "PlayingAccount_Id" });
             DropIndex("dbo.Bids", new[] { "PlayedQuiz_Id" });
             DropIndex("dbo.Accounts", new[] { "LuckUserID" });
@@ -305,12 +335,13 @@ namespace LuckIndia.DataModel.Migrations
             DropTable("dbo.Transactions");
             DropTable("dbo.Results");
             DropTable("dbo.QuestionQuizMaps");
+            DropTable("dbo.Questions");
+            DropTable("dbo.Options");
             DropTable("dbo.RoleTypes");
             DropTable("dbo.Roles");
             DropTable("dbo.RolePermissions");
             DropTable("dbo.ModelClasses");
-            DropTable("dbo.Options");
-            DropTable("dbo.Questions");
+            DropTable("dbo.QuizTypes");
             DropTable("dbo.Quizs");
             DropTable("dbo.Bids");
             DropTable("dbo.LuckUsers");

@@ -10,19 +10,14 @@ namespace LuckIndia.Models
     [Include]
     public class Quiz : Model
     {
-        public Quiz()
-        {
-            Questions = new HashSet<Question>();
-        }
+   
         public override int Id { get; set; }
 
-        public String QuizName { get; set; }
-
+        public int QuizTypeId { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-
         [Include]
-        public ICollection<Question> Questions { get; set; }
+        public QuizType type { get; set; }
 
         private DateTime _createdDate;
         [NonPatchable]

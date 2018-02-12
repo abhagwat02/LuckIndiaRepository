@@ -289,8 +289,10 @@
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OptionsController.cs" />
+    <Compile Include="Controllers\QuestionQuizMapController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Controllers\QuizTypeController.cs" />
     <Compile Include="Controllers\RestApiController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -306,6 +308,7 @@
     <Compile Include="Factories\LuckUserFactory.cs" />
     <Compile Include="Factories\QuestionQuizMapFactory.cs" />
     <Compile Include="Factories\QuizFactory.cs" />
+    <Compile Include="Factories\QuizTypeFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

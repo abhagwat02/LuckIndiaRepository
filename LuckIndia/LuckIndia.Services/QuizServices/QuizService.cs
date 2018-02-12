@@ -124,38 +124,40 @@ namespace LuckIndia.Services.QuizServices
         {
             int nStartHour = 8;
             int nQues = 0;
-            for (int quiz = 0; quiz <= 2; quiz++)
+            for (int quiz = 0; quiz <= 11; quiz++)
             {
                 DateTime today = DateTime.Now;
                 DateTime startTime = new DateTime(today.Year, today.Month, today.Day, nStartHour, 0, 0);
                 DateTime endTime = new DateTime(today.Year, today.Month, today.Day, ++nStartHour, 0, 0);
 
-               var quiz_1 =  CreateQuiz(new QuizDto
+                if (fullList.Count - nQues >= 3)
+
                 {
-                    StartTime = startTime,
-                    EndTime = endTime,
-                    QuizTypeId = 1,
+                        var quiz_1 =  CreateQuiz(new QuizDto
+                    {
+                        StartTime = startTime,
+                        EndTime = endTime,
+                        QuizTypeId = 1,
 
-                }).Result;
+                    }).Result;
 
-                var quiz_2 =  CreateQuiz(new QuizDto
-                {
-                    StartTime = startTime,
-                    EndTime = endTime,
-                    QuizTypeId = 2,
+                    var quiz_2 =  CreateQuiz(new QuizDto
+                    {
+                        StartTime = startTime,
+                        EndTime = endTime,
+                        QuizTypeId = 2,
 
-                }).Result;
+                    }).Result;
 
-                var quiz_3 =  CreateQuiz(new QuizDto
-                {
-                    StartTime = startTime,
-                    EndTime = endTime,
-                    QuizTypeId = 3,
+                    var quiz_3 =  CreateQuiz(new QuizDto
+                    {
+                        StartTime = startTime,
+                        EndTime = endTime,
+                        QuizTypeId = 3,
 
-                }).Result;
+                    }).Result;
 
-
-                var a =  CreateQuestionQuizMap(
+                    var a = CreateQuestionQuizMap(
                     new QuestionQuizMapDto
                     {
                         QuestionId = fullList[nQues].Id.Value,
@@ -163,21 +165,23 @@ namespace LuckIndia.Services.QuizServices
 
                     }).Result;
 
-                 var b = CreateQuestionQuizMap(
-                   new QuestionQuizMapDto
-                   {
-                       QuestionId = fullList[++nQues].Id.Value,
-                       QuizId = quiz_2.Id.Value
+                    var b = CreateQuestionQuizMap(
+                      new QuestionQuizMapDto
+                      {
+                          QuestionId = fullList[++nQues].Id.Value,
+                          QuizId = quiz_2.Id.Value
 
-                   }).Result;
+                      }).Result;
 
-                 var c = CreateQuestionQuizMap(
-                   new QuestionQuizMapDto
-                   {
-                       QuestionId = fullList[++nQues].Id.Value,
-                       QuizId = quiz_3.Id.Value
+                    var c = CreateQuestionQuizMap(
+                      new QuestionQuizMapDto
+                      {
+                          QuestionId = fullList[++nQues].Id.Value,
+                          QuizId = quiz_3.Id.Value
 
-                   }).Result;
+                      }).Result;
+                }
+
             }
             
         }

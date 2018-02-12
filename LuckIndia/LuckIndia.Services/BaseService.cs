@@ -18,7 +18,7 @@ namespace LuckIndia.Services
 
         public BaseService()
         {
-            BaseUri = "http://luckindiaapi.azurewebsites.net/";//"http://localhost:7721/";
+            BaseUri = /*"http://localhost:7721/";*/ "http://luckindiaapi.azurewebsites.net/";
             _client = new HttpClient();
             _client.BaseAddress = new Uri(BaseUri);
             _client.DefaultRequestHeaders.Accept.Clear();

@@ -9,7 +9,6 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
-using LuckIndia.DataModel.DAL.Attributes;
 using LuckIndia.DataModel.DAL.CachingServices;
 using LuckIndia.DataModel.Authorizations;
 using LuckIndia.DataModel.Interfaces;
@@ -18,7 +17,6 @@ using LuckIndia.DataModel.DAL.CrudHelpers;
 using Alphaeon.Services.EnterpriseAPI.DAL.CrudHelpers;
 using LuckIndia.DataModel.LoggingServices;
 using LuckIndia.Models.Attributes;
-using LuckIndia.Models;
 
 namespace LuckIndia.DataModel
 {
@@ -144,6 +142,7 @@ namespace LuckIndia.DataModel
         public DbSet<TxnType> TxnTypes { get; set; }
         public DbSet<AccountType> AcctTypes { get; set; }
         public DbSet<QuestionQuizMap> QuestionQuizMaps { get; set; }
+        public DbSet<QuizType> QuizTypes { get; set; }
 
         #endregion
         /// <summary>

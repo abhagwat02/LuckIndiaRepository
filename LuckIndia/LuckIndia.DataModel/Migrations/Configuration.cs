@@ -12,7 +12,7 @@ namespace LuckIndia.DataModel.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            Database.SetInitializer<LuckIndiaDBContext>(new DropCreateDatabaseAlways<LuckIndiaDBContext>());
+            Database.SetInitializer<LuckIndiaDBContext>(new DropCreateDatabaseIfModelChanges<LuckIndiaDBContext>());
            
         }
 
@@ -113,7 +113,7 @@ namespace LuckIndia.DataModel.Migrations
 
             var accounts_user1 = new List<Account>
             {
-                new Account {  CardNumber = 1111, Type = accttypes[0], UserName = "Indra",Password = "password",DateCreated = DateTime.Now, DateModified = DateTime.Now,LuckUserID = luckAtulId,AccountTypeID = accttypes[0].Id},
+                new Account {  CardNumber = 1111, Type = accttypes[0], UserName = "Indra@gmail.com",Password = "password",DateCreated = DateTime.Now, DateModified = DateTime.Now,LuckUserID = luckAtulId,AccountTypeID = accttypes[0].Id},
                 new Account {  CardNumber = 2222, Type = accttypes[1], DateCreated = DateTime.Now, DateModified = DateTime.Now,LuckUserID = luckAtulId,AccountTypeID = accttypes[1].Id},
             };
             accounts_user1.ForEach(d => context.Accounts.AddOrUpdate(d));
@@ -139,11 +139,29 @@ namespace LuckIndia.DataModel.Migrations
 
             context.SaveChanges();
 
-            
+
             #endregion
 
-            
+            context.QuizTypes.Add(
+                new QuizType
+                {
+                    name = "Quiz1"
+                }
+                );
 
+            context.QuizTypes.Add(
+                new QuizType
+                {
+                    name = "Quiz2"
+                }
+                );
+
+            context.QuizTypes.Add(
+                new QuizType
+                {
+                    name = "Quiz3"
+                }
+                );
             context.Users.AddOrUpdate(new User() { Id = 1, FirstName = "CMD", LastName = "Dashboard", Email = "cmddashboard@Integration.com", UserName = "cmddash", PasswordHash = "dash", IsActive = true, RequirePasswordReset = false, DefaultLanguage = "En-US", DateOfBirth = null, Gender = " " });
             context.AccessTokens.AddOrUpdate(y => y.Id, new AccessToken() { Id = 1, ApplicationId = 1, UserId = 1, Token = "e897aa05df964d188472839559cfd080" });
 

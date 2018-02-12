@@ -61,6 +61,7 @@
     <Compile Include="DTO\QuestionDto.cs" />
     <Compile Include="DTO\QuestionQuizMapDto.cs" />
     <Compile Include="DTO\QuizDto.cs" />
+    <Compile Include="DTO\QuizTypeDto.cs" />
     <Compile Include="DTO\UserDto.cs" />
     <Compile Include="Interfaces\IDTO.cs" />
     <Compile Include="Interfaces\IExpirable.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Models\Quiz\Question.cs" />
     <Compile Include="Models\Quiz\QuestionQuizMap.cs" />
     <Compile Include="Models\Quiz\Quiz.cs" />
+    <Compile Include="Models\Quiz\QuizType.cs" />
     <Compile Include="Models\Quiz\Result.cs" />
     <Compile Include="Models\Registration\Account.cs" />
     <Compile Include="Enums\AccountType.cs" />
